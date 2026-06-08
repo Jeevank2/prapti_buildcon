@@ -35,7 +35,7 @@ const timeline = [
 
 export default function Legacy() {
     return (
-        <section className="bg-[#111111] py-24 text-white">
+        <section id="legacy" className="bg-[#111111] py-24 text-white">
             <div className="container mx-auto px-6">
 
                 <div className="text-center mb-16">

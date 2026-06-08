@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Projects from "./pages/projects";
 import ProjectDetails from "./pages/projectDetails";
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
 
         <Route
           path="/projects"
-          element={<Projects />}
+          element={<Navigate to="/#projects" replace />}
         />
 
         <Route

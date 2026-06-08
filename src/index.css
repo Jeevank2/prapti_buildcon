@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Smooth transition for theme background and text colors without overriding scale/transform transitions */
+body, section, header, footer, nav, p, h1, h2, h3, h4, h5, h6, input, select, textarea, blockquote, a {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 400ms;
+}
 :root {
   font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
   color: #0f172a;
@@ -38,4 +46,83 @@ video,
 canvas {
   display: block;
   max-width: 100%;
+}
+
+/* Global Dark Mode Overrides for light-themed utility classes */
+html.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html.dark body {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #000000 !important;
+}
+
+html.dark .bg-white {
+  background-color: #0c0c0c !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #18181b !important;
+}
+
+html.dark .bg-amber-100 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #f59e0b !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+html.dark .bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.1) !important;
+  color: #22c55e !important;
+  border-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-950,
+html.dark .text-slate-800 {
+  color: #ffffff !important;
+}
+
+html.dark .text-slate-700 {
+  color: #e4e4e7 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #a1a1aa !important;
+}
+
+html.dark .text-slate-500 {
+  color: #71717a !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-slate-200\/60,
+html.dark .border-slate-200\/80 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .bg-slate-50\/50 {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+html.dark select option {
+  background-color: #0c0c0c !important;
+  color: #ffffff !important;
+}
+
+html.dark input, 
+html.dark select, 
+html.dark textarea {
+  color-scheme: dark;
+}
+
+/* Logo color inversion for light theme (retains yellow hues but changes white text to black) */
+html:not(.dark) .logo-theme-filter {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.2) !important;
 }

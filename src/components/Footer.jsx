@@ -1,26 +1,24 @@
 export default function Footer() {
     return (
-        <footer className="bg-[#0a0a0a] border-t border-white/10 text-white py-12">
+        <footer className="bg-[#f8f9fa] dark:bg-[#0a0a0a] border-t border-slate-200 dark:border-white/10 text-slate-800 dark:text-white py-12">
             <div className="container mx-auto px-6">
 
                 <div className="grid md:grid-cols-3 gap-10">
 
                     <div>
-                        <h3 className="text-2xl font-bold text-yellow-500">
-                            PRAPTI BUILDCON
-                        </h3>
+                        <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-16 w-auto object-contain mb-4 dark:brightness-110 logo-theme-filter" />
 
-                        <p className="text-gray-400 mt-4">
+                        <p className="text-slate-500 dark:text-gray-400">
                             Building Trust. Creating Landmarks.
                         </p>
                     </div>
 
                     <div>
-                        <h4 className="font-semibold mb-4">
+                        <h4 className="font-semibold mb-4 text-slate-900 dark:text-white">
                             Quick Links
                         </h4>
 
-                        <div className="space-y-2 text-gray-400">
+                        <div className="space-y-2 text-slate-500 dark:text-gray-400">
                             <p>Home</p>
                             <p>Projects</p>
                             <p>About</p>
@@ -29,11 +27,11 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold mb-4">
+                        <h4 className="font-semibold mb-4 text-slate-900 dark:text-white">
                             Contact
                         </h4>
 
-                        <div className="space-y-2 text-gray-400">
+                        <div className="space-y-2 text-slate-500 dark:text-gray-400">
                             <p>Pune, Maharashtra</p>
                             <p>+91 XXXXX XXXXX</p>
                             <p>info@praptibuildcon.com</p>
@@ -42,7 +40,7 @@ export default function Footer() {
 
                 </div>
 
-                <div className="mt-10 pt-6 border-t border-white/10 text-center text-gray-500">
+                <div className="mt-10 pt-6 border-t border-slate-200 dark:border-white/10 text-center text-slate-400 dark:text-gray-500">
                     © 2026 Prapti Buildcon. All Rights Reserved.
                 </div>
 
