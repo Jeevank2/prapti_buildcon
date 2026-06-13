@@ -33,26 +33,26 @@ function BrandMark() {
 
 function ProjectHeader({ isDark, toggleTheme }) {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-white/10 bg-white/95 dark:bg-black/80 text-slate-800 dark:text-white backdrop-blur-md transition-colors duration-300">
+    <header className="fixed top-0 z-50 w-full border-b border-slate-200/50 dark:border-white/10 bg-white/80 dark:bg-black/60 text-slate-800 dark:text-white backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
         <BrandMark />
 
         <nav className="flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
           <Link
             to="/"
-            className="font-semibold text-slate-650 dark:text-gray-300 hover:text-[#c5a880] transition-colors"
+            className="font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-500 transition-colors"
           >
             Home
           </Link>
           <Link
             to="/#projects"
-            className="font-semibold text-slate-650 dark:text-gray-300 hover:text-[#c5a880] transition-colors"
+            className="font-semibold text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-500 transition-colors"
           >
             Projects
           </Link>
           <a
             href="/#contact"
-            className="hidden items-center justify-center rounded-xl bg-yellow-500 px-5 py-2.5 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-600 sm:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-amber-500 px-6 py-2.5 font-bold text-black shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl sm:inline-flex"
           >
             Contact Us
           </a>
@@ -60,7 +60,7 @@ function ProjectHeader({ isDark, toggleTheme }) {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="p-2 border border-slate-300 dark:border-[#c5a880]/30 rounded-full hover:bg-slate-100 dark:hover:bg-[#c5a880]/10 text-slate-800 dark:text-[#c5a880] transition-all flex items-center justify-center h-10 w-10"
+            className="p-2 border border-slate-300 dark:border-[#c5a880]/30 rounded-full hover:bg-slate-100 dark:hover:bg-[#c5a880]/10 text-slate-800 dark:text-[#c5a880] transition-all flex items-center justify-center h-10 w-10 shadow-sm"
             aria-label="Toggle Theme"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -185,65 +185,71 @@ export default function ProjectDetails() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-50 font-sans text-slate-800 antialiased">
+    <div className="min-h-screen w-full bg-slate-50 dark:bg-[#050505] font-sans text-slate-800 dark:text-slate-300 antialiased transition-colors duration-300">
       <ProjectHeader isDark={isDark} toggleTheme={toggleTheme} />
 
-      <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        {/* Navigation Breadcrumb */}
-        <div className="mb-8 text-left">
-          <Link
-            to="/#projects"
-            className="group inline-flex items-center text-sm font-semibold text-amber-600 transition-colors hover:text-amber-700"
-          >
-            <ArrowLeft className="mr-1.5 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Back to Projects List
-          </Link>
-        </div>
-
-        {/* Hero Title Grid */}
-        <div className="mb-8 text-left">
-          <div className="flex flex-wrap items-center gap-3 mb-2">
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200/50 uppercase tracking-wide">
-              {project.type || "Completed Project"}
-            </span>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 border border-green-200/50 uppercase tracking-wide">
-              {project.status}
-            </span>
+      <main className="w-full">
+        {/* Full-bleed Luxury Hero Section */}
+        <section className="relative h-[60vh] sm:h-[80vh] w-full bg-slate-900 overflow-hidden flex items-end">
+          <div className="absolute inset-0 z-0">
+            <img
+              src={project.coverImage || fallbackImage}
+              alt={project.name}
+              className="h-full w-full object-cover object-center transform transition-transform duration-[10s] hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = fallbackImage;
+              }}
+            />
+            {/* Deep dark gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20"></div>
           </div>
-          <h1 className="text-3xl font-black leading-tight tracking-tight text-slate-900 sm:text-5xl">
-            {project.name}
-          </h1>
-          <p className="flex items-center gap-1.5 mt-2 font-medium text-slate-500">
-            <MapPin className="h-4.5 w-4.5 text-slate-400 shrink-0" />
-            <span>{project.address || `${project.location}, Pune, Maharashtra`}</span>
-          </p>
-        </div>
-
-        {/* 2-Column Split: Details vs Sticky Inquiry Widget */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Cover Image, Description, Specs, Amenities, Gallery, Map */}
-          <div className="lg:col-span-8 space-y-10 sm:space-y-12">
-            
-            {/* Cover Image */}
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
-              <img
-                src={project.coverImage || fallbackImage}
-                alt={project.name}
-                className="h-full w-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = fallbackImage;
-                }}
-              />
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 sm:pb-24">
+            {/* Navigation Breadcrumb */}
+            <div className="mb-6">
+              <Link
+                to="/#projects"
+                className="group inline-flex items-center text-sm font-semibold text-slate-300 transition-colors hover:text-amber-500"
+              >
+                <ArrowLeft className="mr-1.5 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                Back to Projects List
+              </Link>
             </div>
 
+            <div className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="px-4 py-1.5 rounded-full text-xs font-black bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-widest backdrop-blur-md">
+                {project.type || "Completed Project"}
+              </span>
+              <span className="px-4 py-1.5 rounded-full text-xs font-black bg-green-500/20 text-green-400 border border-green-500/30 uppercase tracking-widest backdrop-blur-md">
+                {project.status}
+              </span>
+            </div>
+            
+            <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl mb-4 drop-shadow-2xl">
+              {project.name}
+            </h1>
+            
+            <p className="flex items-center gap-2 font-medium text-slate-200 text-lg sm:text-xl max-w-3xl drop-shadow-lg">
+              <MapPin className="h-6 w-6 text-amber-500 shrink-0" />
+              <span>{project.address || `${project.location}, Pune, Maharashtra`}</span>
+            </p>
+          </div>
+        </section>
+
+        {/* Main Content Grid */}
+        <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            
+            {/* Left Column: Description, Specs, Amenities, Gallery, Map */}
+            <div className="lg:col-span-8 space-y-12 sm:space-y-16">
+
             {/* About the Project Description */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <div className="bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2 transition-colors">
                 <Info className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                 About {project.name}
               </h2>
-              <p className="text-base sm:text-lg leading-relaxed text-slate-600 font-normal">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-600 dark:text-slate-400 font-normal transition-colors">
                 {project.description ||
                   "This premium residential development is designed with the highest architectural standards. Positioned in a rapidly emerging sector of Pune, it features spacious interiors, ample sunlight, premium materials, and close connectivity to schools, shopping arenas, and industrial corridors."}
               </p>
@@ -251,59 +257,59 @@ export default function ProjectDetails() {
 
             {/* Specifications Cards Grid */}
             <div className="text-left">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors">
                 <Building2 className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                 Key Specifications
               </h2>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Configuration
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 transition-colors">
                     {project.bhk || "Residential Units"}
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Super Built-up Area
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 transition-colors">
                     {project.builtArea || "Varies by floorplan"}
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Total Units
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 transition-colors">
                     {project.units || "Premium Units"}
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Property Type
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 transition-colors">
                     {project.type || "Residential"}
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Developer
                   </span>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                  <span className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 transition-colors">
                     Prapti Buildcon
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+                <div className="bg-white dark:bg-[#0a0a0a] p-5 rounded-2xl border border-slate-200/60 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1 transition-colors">
                     Status
                   </span>
                   <span className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-green-700">
@@ -316,19 +322,19 @@ export default function ProjectDetails() {
 
             {/* Modern Amenities Section */}
             {project.amenities && project.amenities.length > 0 && (
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <div className="bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors">
                   <LayoutGrid className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                   Premium Amenities
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.amenities.map((amenity) => (
-                    <div key={amenity} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-md hover:border-amber-500/30 hover:-translate-y-0.5">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-amber-700 shrink-0 mt-0.5">
+                    <div key={amenity} className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-[#050505] rounded-xl border border-slate-100 dark:border-white/5 transition-all duration-300 hover:bg-white dark:hover:bg-[#111111] hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/30 hover:-translate-y-0.5">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-500 shrink-0 mt-0.5 transition-colors">
                         <Check className="h-4 w-4" />
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-800 text-sm sm:text-base">{amenity}</p>
+                        <p className="font-semibold text-slate-800 dark:text-slate-200 text-sm sm:text-base transition-colors">{amenity}</p>
                       </div>
                     </div>
                   ))}
@@ -339,7 +345,7 @@ export default function ProjectDetails() {
             {/* Gallery Section */}
             {project.gallery && project.gallery.length > 0 && (
               <div className="text-left">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2 transition-colors">
                   <Landmark className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                   Project Gallery
                 </h2>
@@ -347,7 +353,7 @@ export default function ProjectDetails() {
                   {project.gallery.map((imgUrl, index) => (
                     <div
                       key={index}
-                      className="aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm group relative transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1"
+                      className="aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-[#0a0a0a] shadow-sm group relative transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1"
                     >
                       <img
                         src={imgUrl}
@@ -365,12 +371,12 @@ export default function ProjectDetails() {
 
             {/* Site Location & Embed Map */}
             {project.address && (
-              <div className="space-y-6 rounded-3xl border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
-                <h3 className="flex items-center gap-2 text-2xl font-bold text-slate-900">
+              <div className="space-y-6 rounded-3xl border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
+                <h3 className="flex items-center gap-2 text-2xl font-bold text-slate-900 dark:text-white transition-colors">
                   <MapPin className="h-5.5 w-5.5 text-amber-600" />
                   Site Location & Connectivity
                 </h3>
-                <p className="leading-relaxed text-slate-600 text-base">
+                <p className="leading-relaxed text-slate-600 dark:text-slate-400 text-base transition-colors">
                   <strong>Site Address:</strong> {project.address}
                 </p>
                 {project.mapEmbed && !project.mapEmbed.includes("XXXXX") && (
@@ -404,32 +410,32 @@ export default function ProjectDetails() {
           </div>
 
           {/* Right Column: Sticky Inquiry Widget */}
-          <div className="lg:col-span-4 lg:sticky lg:top-24 mt-8 lg:mt-0 text-left">
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-xl relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-1">
+          <div className="lg:col-span-4 lg:sticky lg:top-32 mt-8 lg:mt-0 text-left">
+            <div className="bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-xl relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
               {/* Top accent line */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-amber-500" />
 
               {!submitted ? (
                 <>
                   <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900 flex items-center gap-1.5">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-1.5 transition-colors">
                       <MessageSquare className="h-5 w-5 text-amber-600" />
                       Inquire / Schedule Visit
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 transition-colors">
                       Fill out the form below and our real-estate advisors will contact you shortly.
                     </p>
                   </div>
 
                   {errorMsg && (
-                    <div className="p-3 mb-4 text-xs font-semibold text-red-600 bg-red-50 rounded-xl border border-red-100">
+                    <div className="p-3 mb-4 text-xs font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 rounded-xl border border-red-100 dark:border-red-500/20 transition-colors">
                       ⚠️ {errorMsg}
                     </div>
                   )}
 
                   <form onSubmit={handleInquirySubmit} className="space-y-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
                         Your Name
                       </label>
                       <div className="relative">
@@ -440,13 +446,13 @@ export default function ProjectDetails() {
                           placeholder="John Doe"
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
+                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
                         Phone Number
                       </label>
                       <div className="relative">
@@ -457,13 +463,13 @@ export default function ProjectDetails() {
                           placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
+                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
                         Email Address
                       </label>
                       <div className="relative">
@@ -474,13 +480,13 @@ export default function ProjectDetails() {
                           placeholder="johndoe@example.com"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
+                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
                         Interested Config
                       </label>
                       <div className="relative">
@@ -489,7 +495,7 @@ export default function ProjectDetails() {
                           name="config"
                           value={formData.config}
                           onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all appearance-none"
+                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all appearance-none placeholder-slate-400 dark:placeholder-slate-600"
                         >
                           <option value="">Select configuration</option>
                           <option value="1 BHK">1 BHK</option>
@@ -501,7 +507,7 @@ export default function ProjectDetails() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
                         Your Message
                       </label>
                       <textarea
@@ -510,7 +516,7 @@ export default function ProjectDetails() {
                         placeholder="I would like to request brochures and plan details..."
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
                       />
                     </div>
 
@@ -524,17 +530,17 @@ export default function ProjectDetails() {
                 </>
               ) : (
                 <div className="py-8 text-center space-y-4">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-green-50 text-green-600 border border-green-100 shadow-sm">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-500 border border-green-100 dark:border-green-500/20 shadow-sm transition-colors">
                     <CheckCircle2 className="h-7 w-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white transition-colors">
                     Inquiry Submitted!
                   </h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    Thank you <strong>{formData.name}</strong>. Your inquiry for <strong>{project.name}</strong> has been successfully received. 
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
+                    Thank you <strong className="text-slate-700 dark:text-slate-200">{formData.name}</strong>. Your inquiry for <strong className="text-slate-700 dark:text-slate-200">{project.name}</strong> has been successfully received. 
                   </p>
-                  <p className="text-xs text-slate-400">
-                    Our sales representative will reach out to you on <strong>{formData.phone}</strong> shortly.
+                  <p className="text-xs text-slate-400 dark:text-slate-500 transition-colors">
+                    Our sales representative will reach out to you on <strong className="text-slate-600 dark:text-slate-300">{formData.phone}</strong> shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -550,7 +556,8 @@ export default function ProjectDetails() {
             </div>
           </div>
 
-        </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
