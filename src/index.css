@@ -48,72 +48,43 @@ canvas {
   max-width: 100%;
 }
 
-/* Global Dark Mode Overrides for light-themed utility classes */
+@theme {
+  /* Luxury Bases */
+  --color-black: #050505; /* Deep luxury onyx */
+  --color-white: #fcfcfc; /* Creamy pearl white */
+
+  /* Luxury Gold Overrides for standard yellow/amber */
+  --color-yellow-400: #d4af37; /* Metallic Gold */
+  --color-yellow-500: #c5a880; /* Champagne Gold */
+  --color-yellow-600: #b8905b; /* Deep Gold */
+  
+  --color-amber-400: #d4af37;
+  --color-amber-500: #c5a880;
+  --color-amber-600: #b8905b;
+  
+  /* Warmer Neutrals Overrides for cold slate */
+  --color-slate-50: #fafafa; /* Creamy pearl */
+  --color-slate-100: #f4f4f5;
+  --color-slate-200: #e4e4e7;
+  --color-slate-300: #d4d4d8;
+  --color-slate-400: #a1a1aa;
+  --color-slate-500: #71717a;
+  --color-slate-600: #52525b;
+  --color-slate-700: #3f3f46;
+  --color-slate-800: #27272a;
+  --color-slate-900: #18181b;
+  --color-slate-950: #0a0a0a; /* Deep charcoal/onyx */
+}
+
+/* Global Dark Mode Overrides for specific html/body elements */
 html.dark {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #0a0a0a;
+  color: #fafafa;
 }
 
 html.dark body {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-html.dark .bg-slate-50 {
-  background-color: #000000 !important;
-}
-
-html.dark .bg-white {
-  background-color: #0c0c0c !important;
-}
-
-html.dark .bg-slate-100 {
-  background-color: #18181b !important;
-}
-
-html.dark .bg-amber-100 {
-  background-color: rgba(245, 158, 11, 0.1) !important;
-  color: #f59e0b !important;
-  border-color: rgba(245, 158, 11, 0.2) !important;
-}
-
-html.dark .bg-green-100 {
-  background-color: rgba(34, 197, 94, 0.1) !important;
-  color: #22c55e !important;
-  border-color: rgba(34, 197, 94, 0.2) !important;
-}
-
-html.dark .text-slate-900,
-html.dark .text-slate-950,
-html.dark .text-slate-800 {
-  color: #ffffff !important;
-}
-
-html.dark .text-slate-700 {
-  color: #e4e4e7 !important;
-}
-
-html.dark .text-slate-600 {
-  color: #a1a1aa !important;
-}
-
-html.dark .text-slate-500 {
-  color: #71717a !important;
-}
-
-html.dark .border-slate-200,
-html.dark .border-slate-200\/60,
-html.dark .border-slate-200\/80 {
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-html.dark .bg-slate-50\/50 {
-  background-color: rgba(255, 255, 255, 0.02) !important;
-}
-
-html.dark select option {
-  background-color: #0c0c0c !important;
-  color: #ffffff !important;
+  background-color: #0a0a0a;
+  color: #fafafa;
 }
 
 html.dark input, 

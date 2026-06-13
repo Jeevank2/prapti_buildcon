@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Contact() {
     return (
         <section
@@ -10,7 +12,12 @@ export default function Contact() {
 
                     {/* Left */}
 
-                    <div>
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8 }}
+                    >
                         <h2 className="text-5xl font-bold mb-6 text-slate-900 dark:text-white">
                             Let's Build Together
                         </h2>
@@ -24,34 +31,40 @@ export default function Contact() {
                             <p>✉️ info@praptibuildcon.com</p>
                             <p>📍 Pune, Maharashtra</p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right */}
 
-                    <form className="space-y-5">
+                    <motion.form 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="space-y-5"
+                    >
 
                         <input
                             type="text"
                             placeholder="Your Name"
-                            className="w-full p-4 rounded-xl bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50"
+                            className="w-full p-4 rounded-xl bg-white dark:bg-[#111111] border border-amber-200/50 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
                         />
 
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full p-4 rounded-xl bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50"
+                            className="w-full p-4 rounded-xl bg-white dark:bg-[#111111] border border-amber-200/50 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
                         />
 
                         <input
                             type="tel"
                             placeholder="Phone"
-                            className="w-full p-4 rounded-xl bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50"
+                            className="w-full p-4 rounded-xl bg-white dark:bg-[#111111] border border-amber-200/50 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
                         />
 
                         <textarea
                             rows="5"
                             placeholder="Message"
-                            className="w-full p-4 rounded-xl bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-yellow-500/50"
+                            className="w-full p-4 rounded-xl bg-white dark:bg-[#111111] border border-amber-200/50 dark:border-white/5 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all"
                         />
 
                         <button
@@ -60,7 +73,7 @@ export default function Contact() {
                             Send Inquiry
                         </button>
 
-                    </form>
+                    </motion.form>
 
                 </div>
 

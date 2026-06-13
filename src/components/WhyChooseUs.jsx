@@ -1,11 +1,18 @@
 import { Users, Clock3 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function WhyChooseUs() {
     return (
-        <section id="why-choose-us" className="bg-slate-50 dark:bg-[#0c0c0c] py-24 text-slate-900 dark:text-white">
+        <section id="why-choose-us" className="bg-gradient-to-b from-white to-amber-50/20 dark:from-[#050505] dark:to-[#0a0a0a] py-24 text-slate-900 dark:text-white">
             <div className="container mx-auto px-6 max-w-7xl">
 
-                <div className="text-center mb-18 max-w-3xl mx-auto">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-18 max-w-3xl mx-auto"
+                >
                     <span className="text-yellow-500 uppercase tracking-widest text-sm font-semibold bg-yellow-500/10 px-4 py-2 rounded-full border border-yellow-500/20">
                         Why Choose Us
                     </span>
@@ -16,12 +23,18 @@ export default function WhyChooseUs() {
                     <p className="text-slate-500 dark:text-gray-400 mt-4 text-lg">
                         Our core pillars shape the way we construct homes and build lasting relationships.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-10 mt-16">
 
                     {/* Pillar 1: Expert Team */}
-                    <div className="flex flex-col justify-between bg-white dark:bg-black p-8 md:p-12 rounded-[2rem] border border-slate-200 dark:border-white/5 hover:border-[#c5a880]/30 dark:hover:border-yellow-500/20 transition-all duration-300 shadow-sm dark:shadow-xl group relative overflow-hidden">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="flex flex-col justify-between bg-white dark:bg-black p-8 md:p-12 rounded-[2rem] border border-amber-200/50 dark:border-white/5 hover:border-amber-400/50 dark:hover:border-yellow-500/20 transition-all duration-300 shadow-sm dark:shadow-xl group relative overflow-hidden hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(245,158,11,0.1)]"
+                    >
                         <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-yellow-500/5 blur-2xl group-hover:bg-yellow-500/10 transition-colors" />
                         <div>
                             <div className="inline-flex p-4 bg-yellow-500/10 rounded-2xl border border-yellow-500/20 text-yellow-500 mb-8">
@@ -47,10 +60,16 @@ export default function WhyChooseUs() {
                                 "Driven by expertise, guided by integrity, and committed to creating spaces that exceed expectations."
                             </blockquote>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Pillar 2: Timely Delivery */}
-                    <div className="flex flex-col justify-between bg-white dark:bg-black p-8 md:p-12 rounded-[2rem] border border-slate-200 dark:border-white/5 hover:border-[#c5a880]/30 dark:hover:border-yellow-500/20 transition-all duration-300 shadow-sm dark:shadow-xl group relative overflow-hidden">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="flex flex-col justify-between bg-white dark:bg-black p-8 md:p-12 rounded-[2rem] border border-amber-200/50 dark:border-white/5 hover:border-amber-400/50 dark:hover:border-yellow-500/20 transition-all duration-300 shadow-sm dark:shadow-xl group relative overflow-hidden hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(245,158,11,0.1)]"
+                    >
                         <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-yellow-500/5 blur-2xl group-hover:bg-yellow-500/10 transition-colors" />
                         <div>
                             <div className="inline-flex p-4 bg-yellow-500/10 rounded-2xl border border-yellow-500/20 text-yellow-500 mb-8">
@@ -76,7 +95,7 @@ export default function WhyChooseUs() {
                                 "Building trust through timely delivery, quality craftsmanship, and unwavering commitment to our customers."
                             </blockquote>
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
 

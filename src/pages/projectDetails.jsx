@@ -96,6 +96,11 @@ export default function ProjectDetails() {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
 
+  // Scroll to top when the component mounts or slug changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   // Theme support in details page
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem("theme");
@@ -221,7 +226,7 @@ export default function ProjectDetails() {
           <div className="lg:col-span-8 space-y-10 sm:space-y-12">
             
             {/* Cover Image */}
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
               <img
                 src={project.coverImage || fallbackImage}
                 alt={project.name}
@@ -233,7 +238,7 @@ export default function ProjectDetails() {
             </div>
 
             {/* About the Project Description */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
               <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <Info className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                 About {project.name}
@@ -252,7 +257,7 @@ export default function ProjectDetails() {
               </h2>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Configuration
                   </span>
@@ -261,7 +266,7 @@ export default function ProjectDetails() {
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Super Built-up Area
                   </span>
@@ -270,7 +275,7 @@ export default function ProjectDetails() {
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Total Units
                   </span>
@@ -279,7 +284,7 @@ export default function ProjectDetails() {
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Property Type
                   </span>
@@ -288,7 +293,7 @@ export default function ProjectDetails() {
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Developer
                   </span>
@@ -297,13 +302,13 @@ export default function ProjectDetails() {
                   </span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-500/50 hover:-translate-y-1">
                   <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                     Status
                   </span>
                   <span className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-green-700">
                     <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                    Ready to Move
+                    Completed
                   </span>
                 </div>
               </div>
@@ -311,14 +316,14 @@ export default function ProjectDetails() {
 
             {/* Modern Amenities Section */}
             {project.amenities && project.amenities.length > 0 && (
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                   <LayoutGrid className="h-5.5 w-5.5 text-amber-600 shrink-0" />
                   Premium Amenities
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.amenities.map((amenity) => (
-                    <div key={amenity} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                    <div key={amenity} className="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100 transition-all duration-300 hover:bg-white hover:shadow-md hover:border-amber-500/30 hover:-translate-y-0.5">
                       <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 text-amber-700 shrink-0 mt-0.5">
                         <Check className="h-4 w-4" />
                       </div>
@@ -342,7 +347,7 @@ export default function ProjectDetails() {
                   {project.gallery.map((imgUrl, index) => (
                     <div
                       key={index}
-                      className="aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm group relative"
+                      className="aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm group relative transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1"
                     >
                       <img
                         src={imgUrl}
@@ -360,7 +365,7 @@ export default function ProjectDetails() {
 
             {/* Site Location & Embed Map */}
             {project.address && (
-              <div className="space-y-6 rounded-3xl border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm text-left">
+              <div className="space-y-6 rounded-3xl border border-slate-200/60 bg-white p-6 sm:p-8 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 hover:-translate-y-1">
                 <h3 className="flex items-center gap-2 text-2xl font-bold text-slate-900">
                   <MapPin className="h-5.5 w-5.5 text-amber-600" />
                   Site Location & Connectivity
@@ -400,7 +405,7 @@ export default function ProjectDetails() {
 
           {/* Right Column: Sticky Inquiry Widget */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 mt-8 lg:mt-0 text-left">
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-xl relative overflow-hidden">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/60 shadow-xl relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-amber-500/50 hover:-translate-y-1">
               {/* Top accent line */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-amber-500" />
 

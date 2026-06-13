@@ -19,10 +19,10 @@ export default function Footer() {
                         </h4>
 
                         <div className="space-y-2 text-slate-500 dark:text-gray-400">
-                            <p>Home</p>
-                            <p>Projects</p>
-                            <p>About</p>
-                            <p>Contact</p>
+                            <a href="/" className="block hover:text-[#c5a880] transition-colors cursor-pointer">Home</a>
+                            <a href="/#projects" className="block hover:text-[#c5a880] transition-colors cursor-pointer">Projects</a>
+                            <a href="/#about" className="block hover:text-[#c5a880] transition-colors cursor-pointer">About</a>
+                            <a href="/#contact" className="block hover:text-[#c5a880] transition-colors cursor-pointer">Contact</a>
                         </div>
                     </div>
 
