@@ -94,10 +94,7 @@ export default function Navbar() {
                     <div className="hidden lg:flex gap-8 items-center text-xs font-semibold tracking-widest text-slate-600 dark:text-gray-300">
                         <a href="#about" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">OUR STORY</a>
                         <a href="#projects" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">PROJECTS</a>
-                        <a href="#why-choose-us" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">OUR IMPACT</a>
-                        <a href="#testimonials" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">MEDIA</a>
                         <a href="#contact" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">CAREERS</a>
-                        <a href="#contact" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">NRI DESK</a>
                         <a href="#contact" className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">CONTACT</a>
                     </div>
 
@@ -128,10 +125,7 @@ export default function Navbar() {
                         <div className="flex flex-col p-6 gap-4 text-sm font-semibold tracking-widest text-slate-600 dark:text-gray-300">
                             <a href="#about" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">OUR STORY</a>
                             <a href="#projects" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">PROJECTS</a>
-                            <a href="#why-choose-us" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">OUR IMPACT</a>
-                            <a href="#testimonials" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">MEDIA</a>
                             <a href="#contact" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">CAREERS</a>
-                            <a href="#contact" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">NRI DESK</a>
                             <a href="#contact" onClick={() => setOpen(false)} className="hover:text-[#c5a880] dark:hover:text-[#c5a880] transition-colors">CONTACT</a>
                         </div>
                     </div>

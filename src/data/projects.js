@@ -5,14 +5,15 @@ export const projects = [
         name: "Vrundavan Homes",
         location: "Alandi",
         status: "Completed",
-        coverImage: "/projects/vrundavan-homes.png",
+        coverImage: "/projects/vrundavan-homes-v2.png",
         type: "Premium Residential",
         bhk: "1 & 2 BHK Apartments",
         builtArea: "385 - 610 Sq.Ft.",
         units: "60 Units",
         description: "A modern enclave designed for comfortable family living. Vrundavan Homes features spacious residences, landscaped gardens, and a peaceful environment close to the sacred Indrayani River, offering a perfect blend of spirituality and modern life.",
-        address: "Alandi-Markal Rd, near Nanashri lawns, Alandi, Alandi Rural, Maharashtra 412105",
+        address: "MWG4+RHH, Opp. Nanashree Lawns, Alandi, Vadgaon, Maharashtra 412105",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15115.424164161833!2d73.8967073748937!3d18.670356164936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7811bb1f787%3A0xc3f5a2ba2771cc43!2sAlandi%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834500000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/M2Pb3eUy3LEVz3as8",
         amenities: [
             "Children's Play Area",
             "Senior Citizen Sitting Area",
@@ -22,8 +23,7 @@ export const projects = [
             "Covered Parking Space"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+            "/projects/vrundavan-homes-v2.png"
         ]
     },
     {
@@ -32,7 +32,7 @@ export const projects = [
         name: "Vedant Residency",
         location: "Talegaon Dabhade",
         status: "Completed",
-        coverImage: "/projects/vedant-residency.png",
+        coverImage: "/projects/vedant-residency-main.png",
         type: "Premium Residential",
         bhk: "1 RK & 1 BHK Apartments",
         builtArea: "268 - 328 Sq.Ft.",
@@ -40,6 +40,7 @@ export const projects = [
         description: "Situated in the scenic and breezy town of Talegaon Dabhade, Vedant Residency is an oasis of peace. With high-end specifications, premium fittings, and panoramic views of the Western Ghats, it delivers the ultimate comfort for your family.",
         address: "PM89+RXM, Talegaon Dabhade R, Maharashtra 410506",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.6534578129583!2d73.68412347489396!3d18.679124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b13db5452d3d%3A0xe54d896bb6a1d82e!2sTalegaon%20Dabhade%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834600000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/necwW6oNzHZwrc5F7",
         amenities: [
             "Clubhouse & Party Hall",
             "State-of-the-art Gym",
@@ -49,9 +50,7 @@ export const projects = [
             "Power Backup for Common Areas"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+            "/projects/vedant-residency-main.png"
         ]
     },
     {
@@ -60,7 +59,7 @@ export const projects = [
         name: "Indu Pride",
         location: "Pimple Nilakh",
         status: "Completed",
-        coverImage: "/projects/indu-pride.png",
+        coverImage: "/projects/indu-pride-1.png",
         type: "Luxury Residential Living",
         bhk: "2 BHK Executive Apartments",
         builtArea: "961 Sq.Ft.",
@@ -68,6 +67,7 @@ export const projects = [
         description: "Designed for modern, fast-paced professionals. Indu Pride in Pimple Nilakh offers excellent connectivity to major commercial hubs like Aundh and Baner. Features intelligent layout planning, high ceilings, and top-tier ventilation.",
         address: "Late Chandrakant Raoji Jagtap Path, Sharda Colony, Pimple Nilakh, Pimpri-Chinchwad, Maharashtra 411027",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.4344578129583!2d73.79124567489396!3d18.579124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2be2a121512d5%3A0xe54d896bb6a1d82e!2sPimple%20Nilakh%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834700000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/5V71jQ1ZzEFzHwBB8",
         amenities: [
             "Rooftop Sit-out Area",
             "Yoga & Meditation Deck",
@@ -77,10 +77,9 @@ export const projects = [
             "Underground & Overhead Water Tanks"
         ],
         gallery: [
-            "/projects/indu-pride.png",
-            "/projects/indu-pride-night.png",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80"
+            "/projects/indu-pride-1.png",
+            "/projects/indu-pride-2.png",
+            "/projects/indu-pride-3.png"
         ]
     },
     {
@@ -97,6 +96,7 @@ export const projects = [
         description: "Strategically positioned in the IT hub of Pune, Estella caters to the modern corporate workforce. Features smart-home automation capabilities, a luxury clubhouse, a swimming pool, and work-from-home friendly designs.",
         address: "Imperia Rd, Wakadkar Wasti, Hinjawadi, Pimpri-Chinchwad, Maharashtra 411057",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2534578129583!2d73.73412347489396!3d18.589124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbded5452d3d%3A0xe54d896bb6a1d82e!2sHinjawadi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834800000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/MixqkB3jJ6GJjn7w8",
         amenities: [
             "Swimming Pool",
             "Co-working Space & Lounge",
@@ -116,7 +116,7 @@ export const projects = [
         name: "SAI KAMAL VIHAR APT",
         location: "Dighi",
         status: "Completed",
-        coverImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+        coverImage: "/projects/sai-kamal-vihar.png",
         type: "Residential Apartment Complex",
         bhk: "1 & 2 BHK Cozy Homes",
         builtArea: "450 - 750 Sq.Ft.",
@@ -124,6 +124,7 @@ export const projects = [
         description: "A completed residential community providing cozy homes and excellent security in Gokul Colony, Dighi. Features landscaped settings, pedestrian pathways, and a warm neighborhood environment.",
         address: "Savitribai Phule Rd, Gokul Colony, Dighi, Pimpri-Chinchwad, Maharashtra 411015",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5634578129583!2d73.86412347489396!3d18.619124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c13db5452d3d%3A0xe54d896bb6a1d82e!2sDighi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834900000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/FbN7wszyNXNcNKM77",
         amenities: [
             "Senior Citizen Sitting Area",
             "Children's Play Park",
@@ -133,8 +134,7 @@ export const projects = [
             "Rainwater Harvesting"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80"
+            "/projects/sai-kamal-vihar.png"
         ]
     },
     {
@@ -143,7 +143,7 @@ export const projects = [
         name: "Onella Tower",
         location: "Charholi",
         status: "Completed",
-        coverImage: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
+        coverImage: "/projects/onella-tower.png",
         type: "Architectural Landmark",
         bhk: "1 & 2 BHK Apartments",
         builtArea: "432 - 711 Sq.Ft.",
@@ -151,6 +151,7 @@ export const projects = [
         description: "A soaring architectural masterpiece representing a high-end urban lifestyle. Located on the Charholi-Airport Road, Onella Tower features premium building standards, a grand entrance lobby, and modern facilities.",
         address: "Sr No.514/14, Onella Tower, 514/15, Charholi-Airport Road, opp. Bank of Maharashtra, Wagholi, Charholi Budruk, Pune, Pimpri-Chinchwad, Maharashtra 412105",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8534578129583!2d73.89412347489396!3d18.669124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c7bdb5452d3d%3A0xe54d896bb6a1d82e!2sCharholi%20Budruk%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717835000000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/BdfgBkpnYp9saboBA",
         amenities: [
             "Grand Entrance Lobby",
             "Rooftop Sky Lounge",
@@ -160,9 +161,7 @@ export const projects = [
             "High-speed Passenger Elevators"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1502005229762-fc1b2381f0fb?auto=format&fit=crop&w=800&q=80"
+            "/projects/onella-tower.png"
         ]
     },
     {
@@ -171,7 +170,7 @@ export const projects = [
         name: "Castellia",
         location: "Pimple Saudagar",
         status: "Completed",
-        coverImage: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80",
+        coverImage: "/projects/castellia-1.png",
         type: "Premium Residential Tower",
         bhk: "1 & 2 BHK Apartments",
         builtArea: "550 - 970 Sq.Ft.",
@@ -179,6 +178,7 @@ export const projects = [
         description: "A premium completed gated society situated in the heart of Pimple Saudagar. With excellent connectivity to educational institutions and high-end retail, Castellia offers comfortable, secure family living.",
         address: "Pimple Saudagar, Pimpri-Chinchwad, Maharashtra 411027",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15111.45607317765!2d73.78440737489377!3d18.591244464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b918b5452d3d%3A0xe54d896bb6a1d82e!2sPimple%20Saudagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717835100000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/f3PCDY9LZiZQbZFX9",
         amenities: [
             "Gated Community Security",
             "Dedicated Parking",
@@ -188,9 +188,8 @@ export const projects = [
             "24/7 Water Supply"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
+            "/projects/castellia-1.png",
+            "/projects/castellia-2.png"
         ]
     },
     {
@@ -199,7 +198,7 @@ export const projects = [
         name: "Prapti Shivkamal",
         location: "Dighi",
         status: "Completed",
-        coverImage: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80",
+        coverImage: "/projects/prapti-shivkamal.png",
         type: "Premium Residential",
         bhk: "1 & 2 BHK Apartments",
         builtArea: "412 - 700 Sq.Ft.",
@@ -207,6 +206,7 @@ export const projects = [
         description: "A completed residential development in Vijay Nagar, Dighi, Pune. It offers beautifully crafted 1 & 2 BHK homes with green surroundings, senior citizen areas, and safe play spaces for children.",
         address: "Vijay Nagar, Dighi, Pune, Maharashtra 411015",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5634578129583!2d73.86412347489396!3d18.619124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c13db5452d3d%3A0xe54d896bb6a1d82e!2sDighi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834900000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/nUVsHKURRXegb9e46",
         amenities: [
             "Children's Play Park",
             "Senior Citizen Sitting Area",
@@ -216,8 +216,7 @@ export const projects = [
             "Rainwater Harvesting"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1607348988049-05a0d3dd63df?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+            "/projects/prapti-shivkamal.png"
         ]
     },
     {
@@ -226,7 +225,7 @@ export const projects = [
         name: "Indu Heights",
         location: "Dighi",
         status: "Completed",
-        coverImage: "https://images.unsplash.com/photo-1606046604972-77cc76aee944?auto=format&fit=crop&w=1200&q=80",
+        coverImage: "/projects/indu-heights-main.png",
         type: "Modern Residential Complex",
         bhk: "1 & 2 BHK Apartments",
         builtArea: "616 - 979 Sq.Ft.",
@@ -234,6 +233,7 @@ export const projects = [
         description: "Conveniently located near the busy hub of Magazine Chowk in Dighi, Indu Heights is a modern residential tower featuring spacious configurations, abundant lighting, and excellent road connectivity.",
         address: "Magazine Chowk, Dighi, Pune, Maharashtra 411015",
         mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5634578129583!2d73.86412347489396!3d18.619124464936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c13db5452d3d%3A0xe54d896bb6a1d82e!2sDighi%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1717834900000!5m2!1sen!2sin",
+        mapLink: "https://maps.app.goo.gl/MyyBGm3vCxJipzdQ7",
         amenities: [
             "Power Backup for Lift & Common Areas",
             "Kids' Play Area",
@@ -243,9 +243,7 @@ export const projects = [
             "Fire Fighting System"
         ],
         gallery: [
-            "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1502005229762-fc1b2381f0fb?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80"
+            "/projects/indu-heights-main.png"
         ]
     }
 ];

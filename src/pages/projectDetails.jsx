@@ -369,7 +369,18 @@ export default function ProjectDetails() {
                   <strong>Site Address:</strong> {project.address}
                 </p>
                 {project.mapEmbed && !project.mapEmbed.includes("XXXXX") && (
-                  <div className="h-80 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner">
+                  <a 
+                    href={project.mapLink || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(project.address || project.location)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-80 relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-inner group cursor-pointer"
+                  >
+                    <div className="absolute inset-0 z-10 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 bg-white text-slate-900 px-5 py-2.5 rounded-xl font-bold shadow-xl transition-all flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 duration-300">
+                           <MapPin className="h-4.5 w-4.5 text-amber-600" />
+                           Open Direct Map Location
+                        </div>
+                    </div>
                     <iframe
                       src={project.mapEmbed}
                       width="100%"
@@ -378,8 +389,9 @@ export default function ProjectDetails() {
                       allowFullScreen=""
                       loading="lazy"
                       title={`${project.name} location map`}
+                      className="pointer-events-none"
                     />
-                  </div>
+                  </a>
                 )}
               </div>
             )}
