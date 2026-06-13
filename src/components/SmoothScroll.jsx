@@ -1,7 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { useLocation } from "react-router-dom";
 
 export default function SmoothScroll({ children }) {
+  const { pathname } = useLocation();
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -14,6 +18,8 @@ export default function SmoothScroll({ children }) {
       touchMultiplier: 2,
       infinite: false,
     });
+    
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -27,6 +33,17 @@ export default function SmoothScroll({ children }) {
       lenis.destroy();
     };
   }, []);
+
+  // Handle route changes
+  useEffect(() => {
+    // Wait for the next tick to ensure DOM is ready, then scroll
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      }
+    }, 0);
+  }, [pathname]);
 
   return <>{children}</>;
 }
