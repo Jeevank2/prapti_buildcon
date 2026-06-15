@@ -93,7 +93,11 @@ html.dark textarea {
   color-scheme: dark;
 }
 
-/* Logo color inversion for light theme (retains yellow hues but changes white text to black) */
-html:not(.dark) .logo-theme-filter {
-  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.2) !important;
+/* Explicit Logo Display Rules */
+html.dark .logo-light {
+  display: none !important;
 }
+html:not(.dark) .logo-dark {
+  display: none !important;
+}
+

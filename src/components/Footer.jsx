@@ -6,7 +6,8 @@ export default function Footer() {
                 <div className="grid md:grid-cols-3 gap-10">
 
                     <div>
-                        <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-16 w-auto object-contain mb-4 dark:brightness-110 logo-theme-filter" />
+                        <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain mb-4 dark:brightness-110" />
+                        <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mb-4 mix-blend-multiply" />
 
                         <p className="text-slate-500 dark:text-gray-400">
                             Building Trust. Creating Landmarks.

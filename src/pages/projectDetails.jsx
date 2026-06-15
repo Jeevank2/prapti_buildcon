@@ -26,7 +26,8 @@ const fallbackImage =
 function BrandMark() {
   return (
     <Link to="/" className="flex items-center">
-      <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-14 sm:h-16 w-auto object-contain dark:brightness-110 logo-theme-filter" />
+      <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-14 sm:h-16 w-auto object-contain dark:brightness-110" />
+      <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-14 sm:h-16 w-auto object-contain mix-blend-multiply" />
     </Link>
   );
 }
@@ -81,7 +82,8 @@ function Footer({ compact = false }) {
       <div className="mx-auto w-full max-w-7xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
         {!compact && (
           <div className="flex items-center justify-center">
-            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-16 w-auto object-contain dark:brightness-110 logo-theme-filter" />
+            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain dark:brightness-110" />
+            <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mix-blend-multiply" />
           </div>
         )}
         <p className="mx-auto max-w-md text-sm text-slate-400 dark:text-gray-500">
@@ -124,16 +126,6 @@ export default function ProjectDetails() {
     setIsDark((prev) => !prev);
   };
 
-  // Inquiry form states
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    config: "",
-    message: ""
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
 
   if (!project) {
     return (
@@ -166,23 +158,6 @@ export default function ProjectDetails() {
     );
   }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleInquirySubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      setErrorMsg("Please fill in your name and phone number.");
-      return;
-    }
-    setErrorMsg("");
-    setSubmitted(true);
-  };
 
   return (
     <div className="min-h-screen w-full bg-slate-50 dark:bg-[#050505] font-sans text-slate-800 dark:text-slate-300 antialiased transition-colors duration-300">
@@ -240,8 +215,8 @@ export default function ProjectDetails() {
         <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
-            {/* Left Column: Description, Specs, Amenities, Gallery, Map */}
-            <div className="lg:col-span-8 space-y-12 sm:space-y-16">
+            {/* Project Details: Description, Specs, Amenities, Gallery, Map */}
+            <div className="lg:col-span-12 space-y-12 sm:space-y-16">
 
             {/* About the Project Description */}
             <div className="bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-sm text-left transition-all duration-300 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
@@ -409,152 +384,7 @@ export default function ProjectDetails() {
 
           </div>
 
-          {/* Right Column: Sticky Inquiry Widget */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 mt-8 lg:mt-0 text-left">
-            <div className="bg-white dark:bg-[#0a0a0a] p-6 sm:p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-xl relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-amber-500/50 dark:hover:border-amber-500/50 hover:-translate-y-1">
-              {/* Top accent line */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-amber-500" />
 
-              {!submitted ? (
-                <>
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-1.5 transition-colors">
-                      <MessageSquare className="h-5 w-5 text-amber-600" />
-                      Inquire / Schedule Visit
-                    </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 transition-colors">
-                      Fill out the form below and our real-estate advisors will contact you shortly.
-                    </p>
-                  </div>
-
-                  {errorMsg && (
-                    <div className="p-3 mb-4 text-xs font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 rounded-xl border border-red-100 dark:border-red-500/20 transition-colors">
-                      ⚠️ {errorMsg}
-                    </div>
-                  )}
-
-                  <form onSubmit={handleInquirySubmit} className="space-y-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
-                        Your Name
-                      </label>
-                      <div className="relative">
-                        <User className="absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="John Doe"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
-                        Phone Number
-                      </label>
-                      <div className="relative">
-                        <Phone className="absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
-                        Email Address
-                      </label>
-                      <div className="relative">
-                        <Mail className="absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="johndoe@example.com"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
-                        Interested Config
-                      </label>
-                      <div className="relative">
-                        <Ruler className="absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
-                        <select
-                          name="config"
-                          value={formData.config}
-                          onChange={handleInputChange}
-                          className="w-full pl-9 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all appearance-none placeholder-slate-400 dark:placeholder-slate-600"
-                        >
-                          <option value="">Select configuration</option>
-                          <option value="1 BHK">1 BHK</option>
-                          <option value="2 BHK">2 BHK</option>
-                          <option value="3 BHK">3 BHK</option>
-                          <option value="Other">Other / Investment</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1.5 transition-colors">
-                        Your Message
-                      </label>
-                      <textarea
-                        name="message"
-                        rows="3"
-                        placeholder="I would like to request brochures and plan details..."
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50/50 dark:bg-[#050505] text-slate-900 dark:text-white text-sm focus:bg-white dark:focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder-slate-400 dark:placeholder-slate-600"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm tracking-wide shadow-md hover:shadow-lg transition-all duration-200"
-                    >
-                      Request Call Back
-                    </button>
-                  </form>
-                </>
-              ) : (
-                <div className="py-8 text-center space-y-4">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-500 border border-green-100 dark:border-green-500/20 shadow-sm transition-colors">
-                    <CheckCircle2 className="h-7 w-7" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white transition-colors">
-                    Inquiry Submitted!
-                  </h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
-                    Thank you <strong className="text-slate-700 dark:text-slate-200">{formData.name}</strong>. Your inquiry for <strong className="text-slate-700 dark:text-slate-200">{project.name}</strong> has been successfully received. 
-                  </p>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 transition-colors">
-                    Our sales representative will reach out to you on <strong className="text-slate-600 dark:text-slate-300">{formData.phone}</strong> shortly.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: "", email: "", phone: "", config: "", message: "" });
-                    }}
-                    className="mt-4 text-xs font-semibold text-amber-600 hover:underline"
-                  >
-                    Send another inquiry
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
 
           </div>
         </section>

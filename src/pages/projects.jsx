@@ -9,7 +9,8 @@ export default function Projects() {
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center">
-            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-16 w-auto object-contain" />
+            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain" />
+            <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mix-blend-multiply" />
           </Link>
 
           <nav className="flex items-center gap-4 sm:gap-8">
@@ -58,7 +59,8 @@ export default function Projects() {
       <footer className="border-t border-white/10 bg-[#0a0a0a] py-10 text-slate-400 sm:py-12">
         <div className="mx-auto w-full max-w-7xl space-y-6 px-4 text-center sm:px-6 lg:px-8">
           <div className="flex items-center justify-center">
-            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="h-16 w-auto object-contain" />
+            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain" />
+            <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mix-blend-multiply" />
           </div>
           <p className="mx-auto max-w-md text-sm text-gray-500">
             © {new Date().getFullYear()} Prapti Buildcon. All Rights Reserved.
