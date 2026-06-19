@@ -34,8 +34,8 @@ export default function Footer() {
 
                         <div className="space-y-2 text-slate-500 dark:text-gray-400">
                             <p>Pune, Maharashtra</p>
-                            <p>+91 XXXXX XXXXX</p>
-                            <p>info@praptibuildcon.com</p>
+                            <p>+91 91453 11252</p>
+                            <p>praptispaces@gmail.com</p>
                         </div>
                     </div>
 

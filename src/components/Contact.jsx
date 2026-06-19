@@ -27,8 +27,8 @@ export default function Contact() {
                         </p>
 
                         <div className="space-y-4 text-slate-700 dark:text-gray-300">
-                            <p>📞 +91 XXXXX XXXXX</p>
-                            <p>✉️ info@praptibuildcon.com</p>
+                            <p>📞 +91 91453 11252</p>
+                            <p>✉️ praptispaces@gmail.com</p>
                             <p>📍 Pune, Maharashtra</p>
                         </div>
                     </motion.div>
