@@ -5,13 +5,15 @@ export default function Footer() {
 
                 <div className="grid md:grid-cols-3 gap-10">
 
-                    <div>
-                        <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain mb-4 dark:brightness-110" />
-                        <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mb-4 mix-blend-multiply" />
+                    <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-center">
+                            <img src="/brand/prapti-logo.png" alt="PRAPTI BUILDCON Logo" className="logo-dark h-16 w-auto object-contain mb-4 dark:brightness-110" />
+                            <img src="/brand/prapti-logo-light.png" alt="PRAPTI BUILDCON Logo" className="logo-light h-16 w-auto object-contain mb-4 mix-blend-multiply" />
 
-                        <p className="text-slate-500 dark:text-gray-400">
-                            Building Trust. Creating Landmarks.
-                        </p>
+                            <p className="text-slate-500 dark:text-gray-400 text-center">
+                                Building Trust. Creating Landmarks.
+                            </p>
+                        </div>
                     </div>
 
                     <div>
